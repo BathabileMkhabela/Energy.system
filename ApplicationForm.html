@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Generator Form</title>
+
+       
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link rel="stylesheet" href="lib/animate/animate.min.css"/>
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+           /* Add your background image here */
+            background-size: cover;
+            background-attachment: fixed; /* Make the background fixed */
+        }
+        .header {
+            background-color: rgba(255, 255, 255);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            height: 65px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .form-title {
+            font-family: 'Impact', sans-serif;
+            font-size: 12px; /* Smaller font size */
+            text-align: center;
+            padding-top: 10px; /* Reduced margin */
+        }
+
+        .form-container {
+            width: 600px;
+            margin: auto;
+            flex: 1;
+            overflow-y: auto; /* Allow scrolling */
+            padding: 10px;
+        }
+        .section {
+            margin-bottom: 10px;
+            background-color: #ffffff;
+            border-radius: 5px;
+        }
+        .section-title {
+            background-color: #f1f1f1;
+            padding: 10px;
+            cursor: not-allowed; /* Initially disabled cursor */
+            pointer-events: none; /* Disable click */
+            color: gray; /* Dimmed text */
+        }
+        .section-content {
+            display: none;
+            padding: 10px;
+            flex-direction: column;
+        }
+        button {
+            margin-top: 0px;
+            margin-left: 200px;
+            width: 30%;
+            height: 30px;
+            background-color: gray; /* Default button color */
+            color: white;
+            cursor: not-allowed;
+        }
+
+        button.active {
+            background-color: green; /* Button becomes green when active */
+            cursor: pointer;
+        }
+
+        /* Project Name Label */
+        .project-name-content {
+            margin-top: 30px;
+            margin-left: 2px;
+            margin-bottom: 20px; /* Space below the standalone input */
+        }
+        /* Project Name Label */
+        .project-name-content label {
+            font-weight: bold; /* Make label bold */
+            margin-left: 25px;
+            padding-bottom: 15px;
+        }
+         .project-name-content input {
+            width: 90%;
+            padding: 10px;
+            margin-left: 20px;
+            margin-top: 10px;
+            margin-bottom: 0px; /* Space between the input fields */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        /* Input Field Spacing */
+        .section-content label {
+            display: block;
+            margin-bottom: 10px;
+            margin-left: 25px;
+        }
+
+        .section-content input[type="text"],
+        .section-content input[type="email"] {
+            width: 90%;
+            padding: 10px;
+            margin-left: 20px;
+            margin-bottom: 15px; /* Space between the input fields */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .footer {
+            background-color: rgba(255, 255, 255); /* Semi-transparent footer */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            text-align: center;
+        }
+        .styled-select {
+        width: 100%; /*Adjust the width to your preference*/
+        max-width: 400px; /* Set a maximum width */
+        padding: 12px; /* Increase padding for a larger look */
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px; /* Adjust font size */
+        appearance: none; /* Removes default dropdown arrow */
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    }
+
+
+    .styled-select:focus {
+        border-color: #007bff; /* Change border color on focus */
+        outline: none; /* Remove default outline */
+    }
+
+    .select-container {
+        position: relative;
+    }
+
+    .select-container::after {
+        content: '▼'; /* Custom arrow */
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none; /* Prevent interaction with the arrow */
+    }
+    </style>
+</head>
+<body>
+
+<div class="header"></div>
+
+<div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="" class="navbar-brand p-0">
+            <h1 class="text-primary"><i class="fas fa-search-dollar me-3"></i>ENERGY</h1>
+            <!-- <img src="img/logo.png" alt="Logo"> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <div class="nav-item dropdown">
+                    <div class="dropdown-menu m-0">
+                        <a href="feature.html" class="dropdown-item">Our Features</a>
+                        <a href="team.html" class="dropdown-item">Our team</a>
+                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                        <a href="offer.html" class="dropdown-item">Our offer</a>
+                        <a href="FAQ.html" class="dropdown-item">FAQs</a>
+                        <a href="404.html" class="dropdown-item">404 Page</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+            </div>
+            <a href="index.html" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Logout</a>
+
+        </div>
+    </nav>
+<div class="form-container">
+    <div class="section" id="section1">
+        <div class="form-title">
+            <h1>SMALL-SCALE EMBEDDED GENERATION APPLICATION</h1>
+        </div>
+
+        <div class="project-name-content">
+            <label for="standaloneInput">Project Name:</label><br>
+            <input type="text" id="standaloneInput" required oninput="checkProjectName()">
+        </div>
+
+        <div class="section-title" id="section1Title" onclick="toggleSection('section1')">
+            <span class="toggle-sign">+</span> Section 1: Property Owner details
+        </div>
+
+        <div class="section-content">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required oninput="validateSection(1)"><br>
+            <label for="accNum">ID number (if an individual): </label>
+            <input type="email" id="email" required oninput="validateSection(1)"><br>
+            <label for="cellnumber">Cellphone Number: </label>
+            <input type="email" id="phonenumber" required oninput="validateSection(1)"><br>
+            <label for="email">Email Address: </label>
+            <input type="email" id="email" required oninput="validateSection(1)"><br>
+            <button id="section1Button" onclick="completeSection(1)" disabled>Complete Section</button>
+        </div>
+    </div>
+
+    <div class="section" id="section2" style="display:none;">
+        <div class="section-title" id="section2Title" onclick="toggleSection('section2')">
+            <span class="toggle-sign">+</span> Applicant details (if different from Property Owner)
+        </div>
+        <div class="section-content">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required oninput="validateSection(2)"><br>
+            <label for="accNum">ID number (if an individual): </label>
+            <input type="email" id="email" required oninput="validateSection(2)"><br>
+            <label for="cellnumber">Cellphone Number: </label>
+            <input type="email" id="phonenumber" required oninput="validateSection(2)"><br>
+            <label for="email">Email Address: </label>
+            <input type="email" id="email" required oninput="validateSection(2)"><br>
+            <button id="section2Button" onclick="completeSection(2)" disabled>Complete Section</button>
+        </div>
+    </div>
+
+    <div class="section" id="section3" style="display:none;">
+        <div class="section-title" id="section3Title" onclick="toggleSection('section3')">
+            <span class="toggle-sign">+</span> Section 3: Embedded Generator (EG) details
+        </div>
+        <div class="section-content">
+            <label for="name">Name:</label>
+            <select id="name" required onchange="validateSection(3)">
+                <option value="" disabled selected>Fuel Source for Embedded Generator </option>
+                <option value="name1">Solar</option>
+                <option value="name2">Hydro</option> 
+                <option value="name3">Gas</option>
+                <option value="name4">Coal</option>
+                <option value="name5">Bagasse</option> 
+                <option value="name6">Other</option>
+                <!-- Add more options as needed -->
+            </select><br>
+            <label for="accNum">Total Capacity of Embedded Generator system (kVA and PF): </label>
+            <input type="email" id="email" required oninput="validateSection(3)"><br>
+            <label for="cellnumber">Cellphone Number: </label>
+            <input type="email" id="phonenumber" required oninput="validateSection(3)"><br>
+            <label for="email">Email Address: </label>
+            <input type="email" id="email" required oninput="validateSection(3)"><br>
+
+            <label for="name">Name:</label>
+            <select id="name" required onchange="validateSection(3)">
+                <option value="" disabled selected>Type of energy conversion: </option>
+                <option value="name1">Synchronous Generator</option>
+                <option value="name2">Asynchronous/Induction </option> 
+                <option value="name3">Generator </option>
+                <option value="name4">Inverter</option>
+                <option value="name5">Fuel Cells</option> 
+                <!-- Add more options as needed -->
+            </select><br>
+            <button onclick="completeSection(3)" disabled>Complete Section</button>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>Footer Information Here</p>
+</div>
+
+<script>
+    function toggleSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        const content = section.querySelector('.section-content');
+        const toggleSign = section.querySelector('.toggle-sign');
+
+        if (content.style.display === 'none' || content.style.display === '') {
+            content.style.display = 'block';
+            toggleSign.textContent = '−';
+        } else {
+            content.style.display = 'none';
+            toggleSign.textContent = '+';
+        }
+    }
+
+    function validateSection(sectionNumber) {
+        const section = document.getElementById(section$,{sectionNumber});
+        const inputs = section.querySelectorAll('input[required]');
+        const allFilled = Array.from(inputs).every(input => input.value.trim() !== '');
+
+        const button = document.getElementById(section$,{sectionNumber},Button);
+        if (allFilled) {
+            button.disabled = false;
+            button.classList.add('active'); // Turn button green
+        } else {
+            button.disabled = true;
+            button.classList.remove('active'); // Revert button to default
+        }
+    }
+
+    function completeSection(sectionNumber) {
+        const nextSection = document.getElementById('section${sectionNumber + 1}');
+        if (nextSection) {
+            nextSection.style.display = 'block';
+            const inputs = nextSection.querySelectorAll('input');
+            inputs.forEach(input => input.disabled = false);
+            const button = nextSection.querySelector('button');
+            button.disabled = false;
+        }
+
+        const currentSection = document.getElementById(section$,{sectionNumber});
+        currentSection.querySelector('.section-content').style.display = 'none';
+
+        if (sectionNumber === 1) {
+            // Automatically show Section 2 and 3 after Section 1 is completed
+            document.getElementById('section2').style.display = 'block';
+            document.getElementById('section3').style.display = 'block';
+        } else if (sectionNumber === 2) {
+        // Automatically show Section 3 after Section 2 is completed
+        document.getElementById('section3').style.display = 'block';
+    }
+    }
+
+    function checkProjectName() {
+        const projectNameInput = document.getElementById('standaloneInput').value;
+        const sectionTitles = document.querySelectorAll('.section-title');
+
+        sectionTitles.forEach(title => {
+            if (projectNameInput.trim() !== '') {
+                title.style.pointerEvents = 'auto'; // Enable click
+                title.style.color = 'black'; // Change color to active
+                title.style.cursor = 'pointer'; // Change cursor to pointer
+            } else {
+                title.style.pointerEvents = 'none'; // Disable click
+                title.style.color = 'gray'; // Change color to inactive
+                title.style.cursor = 'not-allowed'; // Change cursor to not-allowed
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
