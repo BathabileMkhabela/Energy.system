@@ -48,19 +48,19 @@
         <div class="content">
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
-                <a href="userDetails.html" class="navbar-brand d-flex d-lg-none me-4">
+                <a href="nersaDetail.html" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
                 </a>
                 <div class="nav-item dropdown">
 
                     <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                    <span class="d-none d-lg-inline-flex">John Doe</span>
+                    <span class="d-none d-lg-inline-flex">NERSA</span>
 
-                <!-- <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                    <a href="#" class="dropdown-item">My Profile</a>
-                    <a href="#" class="dropdown-item">Settings</a>
-                    <a href="#" class="dropdown-item">Log Out</a>
-                </div> -->
+                 <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                    <!-- <a href="#" class="dropdown-item">My Profile</a>
+                    <a href="#" class="dropdown-item">Settings</a> -->
+                    <a href="ENERGY.SYSTEM/index.html" class="dropdown-item">Log Out</a>
+                </div> 
             </div>
             </nav>
             <!-- Navbar End -->
@@ -86,59 +86,55 @@
             <script>
                 // Sample data similar to the table
                 const users = [
-                    {
-                        ref: 'ref-0123',
-                        municipalNo: '1234',
-                        propertyType:'Residential',
-                        name: 'John Doe',
-                        date: '20 Jan 2024',
-                        coc: 'ORS.pdf',
-                        status: 'Awaiting documentation',
-                        address: '123 Elm Street',
-                        contact: '1234567890',
-                         // Embedded Generator Details
-                        fuelSource: 'Solar', // Options: Solar, Hydro, Gas, Coal, Bagasse, Other
-                        totalCapacity: '100 kVA, 0.8 PF', // kVA and PF
-                        energyConversionType: 'Inverter', // Options: Synchronous Generator, Asynchronous/Induction Generator, Inverter, Fuel Cells
-                        modeOfGeneration: 'Export excess to distribution network', // Options: Use within network, Export excess, Export only, Wheeling
-                        hasStorage: true // true if the system has storage, false otherwise
-                    },
-                    {
-                        ref: 'ref-0124',
-                        municipalNo: '1235',
-                        propertyType:'Residential',
-                        name: 'John Doe',
-                        date: '01 Jan 2024',
-                        coc: 'ORS.pdf',
-                        status: 'Awaiting Approval',
-                        address: '456 Maple Street',
-                        contact: '0987654321',
-                        // Embedded Generator Details
-                        fuelSource: 'Hydro',
-                        totalCapacity: '80 kVA, 0.9 PF',
-                        energyConversionType: 'Synchronous Generator',
-                        modeOfGeneration: 'Use within network',
-                        hasStorage: false
-                    },
-                    {
-                        ref: 'ref-0125',
-                        municipalNo: '1235',
-                        propertyType:'Commercial',
-                        name: 'John Doe',
-                        date: '01 Jan 2045',
-                        coc: 'ORS.pdf',
-                        status: 'Awaiting Approval',
-                        address: '789 Oak Lane',
-                        contact: '5554443333',
-                        // Embedded Generator Details
-                        fuelSource: 'Solar',
-                        totalCapacity: '50 kVA, 0.85 PF',
-                        energyConversionType: 'Fuel Cells',
-                        modeOfGeneration: 'Export solely to distribution network',
-                        hasStorage: true
-                    }
-                    // Add more users if necessary
-                ];
+                {
+                    ref: 'ref-0123',
+                    municipalNo: '1234',
+                    propertyType: 'Industrial',
+                    name: 'John Doe',
+                    date: '20 Jan 2024',
+                    coc: 'ORS.pdf',
+                    status: 'Awaiting documentation',
+                    address: '123 Elm Street',
+                    contact: '1234567890',
+                    fuelSource: 'Solar', 
+                    totalCapacity: '400 kVA, 0.8 PF',
+                    energyConversionType: 'Inverter', 
+                    modeOfGeneration: 'Export excess to distribution network', 
+                    hasStorage: true 
+                },
+                {
+                    ref: 'ref-0124',
+                    municipalNo: '1235',
+                    propertyType: 'Industrial',
+                    name: 'John Doe',
+                    date: '01 Jan 2024',
+                    coc: 'ORS.pdf',
+                    status: 'Awaiting Approval',
+                    address: '456 Maple Street',
+                    contact: '0987654321',
+                    fuelSource: 'Hydro',
+                    totalCapacity: '600 kVA, 0.9 PF',
+                    energyConversionType: 'Synchronous Generator',
+                    modeOfGeneration: 'Use within network',
+                    hasStorage: false
+                },
+                {
+                    ref: 'ref-0125',
+                    municipalNo: '1235',
+                    propertyType: 'Agricultural',
+                    name: 'John Doe',
+                    date: '01 Jan 2045',
+                    coc: 'ORS.pdf',
+                    status: 'Awaiting Approval',
+                    address: '789 Oak Lane',
+                    contact: '5554443333',
+                    fuelSource: 'Solar',
+                    totalCapacity: '500 kVA, 0.85 PF',
+                    energyConversionType: 'Fuel Cells',
+                    modeOfGeneration: 'Export solely to distribution network',
+                    hasStorage: true
+                }
+            ];
                     // Function to get the query parameter
                     function getQueryParam(param) {
                         const urlParams = new URLSearchParams(window.location.search);
@@ -154,8 +150,10 @@
                         if (user) {
                             approvalDetailsDiv.innerHTML = `
                                  <p><strong>Reference No.:</strong> ${user.ref}</p>
+                                 <p><strong>Municipal No.:</strong> ${user.municipalNo}</p>
                                 <p><strong>Name:</strong> ${user.name}</p>
-                                <p><strong>Date:</strong> ${user.date}</p>
+                                <p><strong>Property Type:</strong> ${user.propertyType}</p>
+                                 <p><strong>COC Document:</strong> <a href="docs/ORS.pdf" download>${user.coc}</a></p>
 
                                 <!-- Embedded Generator Details -->
                                 <h3>Embedded Generator Details</h3>

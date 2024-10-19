@@ -72,12 +72,12 @@
                 <select class="form-select" id="userType" required>
                     <option value="applicant">Applicant</option>
                     <option value="non-stakeholder">Non-stakeholder</option>
-                    <option value="admin">Admin</option>
+                    <!-- <option value="admin">Admin</option> -->
                 </select>
             </div>
             <div id="applicantFields" class="mb-3 input-group">
                 <span class="input-group-text"><i class="fa-solid fa-tachometer-alt"></i></span>
-                <input type="text" class="form-control" id="meterNumber" placeholder="Meter Number">
+                <input type="text" class="form-control" id="meterNumber" placeholder="Municipal Number">
             </div>
             <div id="nonStakeholderFields" class="mb-3 input-group d-none">
                 <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
@@ -112,7 +112,7 @@
             event.preventDefault();
             const userType = document.getElementById("userType").value;
             const password = document.getElementById("password").value;
-        
+
             if (userType === "applicant") {
                 const meterNumber = document.getElementById("meterNumber").value;
                 if (meterNumber && password) {
@@ -124,8 +124,9 @@
             } else if (userType === "non-stakeholder") {
                 const userName = document.getElementById("userName").value;
                 if (userName && password) {
-                    alert("Non-stakeholder login successful!");
-                    window.location.href = "darkpan-1.0.0\darkpan-1.0.0\index.html"; // Update the path if needed
+                    alert("Login successful!");
+                    // Make sure the path to the file is correct and that the file exists
+                    window.location.href = "/darkpan-1.0.0/darkpan-1.0.0/index.html"; 
                 } else {
                     alert("Please enter a valid username and password.");
                 }
