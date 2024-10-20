@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
-    
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -161,13 +161,13 @@
                     <div class="nav-item dropdown">
 
                             <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                            <span class="d-none d-lg-inline-flex">NERSA</span>
 
-                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <!-- <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a> -->
-                            <a href="ENERGY.SYSTEM/index.html" class="dropdown-item">Log Out</a>
-                        </div>
+                        <!-- <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="#" class="dropdown-item">Log Out</a>
+                        </div> -->
                     </div>
                 </div>
             </nav>
@@ -221,24 +221,17 @@
             <!-- Sales Chart Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
-                    <!-- <div class="col-sm-12 col-xl-6">
+                    
+                    <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary text-center rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Predicted Number of Applications </h6>
-                            </div>
-                            <canvas id="worldwide-sales"></canvas>
-                        </div>
-                    </div> -->
-                    <div class="col-sm-12 col-xl-12">
-                        <div class="bg-secondary text-center rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
+                            <div class="d-flex align-items-center justify-content-between mb-6">
                                 <h6 class="mb-0">Notifications</h6>
                                 <a href="">Show All</a>
                             </div>
                             <div class="d-flex align-items-center border-bottom py-3">
                                 <div class="w-100 ms-3">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">COC Submission</h6>
+                                        <h6 class="mb-0">Approval</h6>
                                         <small>5 minutes ago</small>
                                     </div>
                                     <span>ref-0123</span>
@@ -247,7 +240,7 @@
                             <div class="d-flex align-items-center border-bottom py-3">
                                 <div class="w-100 ms-3">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Installation completed</h6>
+                                        <h6 class="mb-0">Approval</h6>
                                         <small>8 minutes ago</small>
                                     </div>
                                     <span>ref-0124</span>
@@ -256,12 +249,21 @@
                             <div class="d-flex align-items-center border-bottom py-3">
                                 <div class="w-100 ms-3">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Installation Completed</h6>
+                                        <h6 class="mb-0">Approval</h6>
                                         <small>15 minutes ago</small>
                                     </div>
                                     <span>ref-0125</span>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-secondary text-center rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">Predicted Number of Applications </h6>
+                            </div>
+                            <canvas id="worldwide-sales"></canvas>
                         </div>
                     </div>
                 </div>
@@ -281,49 +283,103 @@
                     </div>
                     <div class="table-responsive">
                         <table class="table text-start align-middle table-bordered table-hover mb-0" id="applicationTable">
-                                <thead>
-                                    <tr class="text-white">
-                                        <th scope="col"><input class="form-check-input" type="checkbox"></th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Reference No.</th>
-                                        <th scope="col">Customer</th>
-                                        <th scope="col">COC</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><input class="form-check-input" type="checkbox"></td>
-                                        <td>20 Jan 2024</td>
-                                        <td>ref-0123</td>
-                                        <td>Jhon Doe</td>
-                                        <td>ORS.pdf</td>
-                                        <td>Awaiting documentation</td>
-                                        <td><a class="btn btn-sm btn-primary" href="userDetails.html?ref=ref-0123">Details</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><input class="form-check-input" type="checkbox"></td>
-                                        <td>01 Jan 2024</td>
-                                        <td>ref-0124</td>
-                                        <td>Jhon Doe</td>
-                                        <td>ORS.pdf</td>
-                                        <td>Awaiting Approval</td>
-                                        <td><a class="btn btn-sm btn-primary" href="userDetails.html?ref=ref-0124">Detail</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><input class="form-check-input" type="checkbox"></td>
-                                        <td>01 Jan 2045</td>
-                                        <td>ref-0125</td>
-                                        <td>Jhon Doe</td>
-                                        <td>ORS.pdf</td>
-                                        <td>Awaiting Approval</td>
-                                        <td><a class="btn btn-sm btn-primary"href="userDetails.html?ref=ref-0125">Detail</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                    </div>
-                </div>
+                            <thead>
+                                <tr class="text-white">
+                                    <th scope="col"><input class="form-check-input" type="checkbox"></th>
+                                    <th scope="col">Municipal No</th>
+                                    <th scope="col">Reference No.</th>
+                                    <th scope="col">Customer</th>
+                                    <th scope="col">Property Type</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Fuel Source</th>
+                                    <th scope="col">Total Capacity</th>
+                                    <th scope="col">Energy Conversion Type</th>
+                                    <th scope="col">Mode of Generation</th>
+                                    <th scope="col">Has Storage</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <!-- Rows will be populated here -->
+                            </tbody>
+                        </table>
+
+                        <script>
+                            const users = [
+                                {
+                                    ref: 'ref-0123',
+                                    municipalNo: '1234',
+                                    propertyType: 'Industrial',
+                                    name: 'John Doe',
+                                    date: '20 Jan 2024',
+                                    coc: 'ORS.pdf',
+                                    status: 'Awaiting evaluation',
+                                    address: '123 Elm Street',
+                                    contact: '1234567890',
+                                    fuelSource: 'Solar', 
+                                    totalCapacity: '400 kVA, 0.8 PF',
+                                    energyConversionType: 'Inverter', 
+                                    modeOfGeneration: 'Export excess to distribution network', 
+                                    hasStorage: true 
+                                },
+                                {
+                                    ref: 'ref-0124',
+                                    municipalNo: '1235',
+                                    propertyType: 'Industrial',
+                                    name: 'John Doe',
+                                    date: '01 Jan 2024',
+                                    coc: 'ORS.pdf',
+                                    status: 'Awaiting evaluation',
+                                    address: '456 Maple Street',
+                                    contact: '0987654321',
+                                    fuelSource: 'Hydro',
+                                    totalCapacity: '600 kVA, 0.9 PF',
+                                    energyConversionType: 'Synchronous Generator',
+                                    modeOfGeneration: 'Use within network',
+                                    hasStorage: false
+                                },
+                                {
+                                    ref: 'ref-0125',
+                                    municipalNo: '1235',
+                                    propertyType: 'Agricultural',
+                                    name: 'John Doe',
+                                    date: '01 Jan 2045',
+                                    coc: 'ORS.pdf',
+                                    status: 'Awaiting evaluation',
+                                    address: '789 Oak Lane',
+                                    contact: '5554443333',
+                                    fuelSource: 'Solar',
+                                    totalCapacity: '500 kVA, 0.85 PF',
+                                    energyConversionType: 'Fuel Cells',
+                                    modeOfGeneration: 'Export solely to distribution network',
+                                    hasStorage: true
+                                }
+                            ];
+
+                            const tableBody = document.getElementById('tableBody');
+
+                            users.forEach(user => {
+                                const row = document.createElement('tr');
+
+                                row.innerHTML = `
+                                    <td><input class="form-check-input" type="checkbox"></td>
+                                    <td>${user.municipalNo}</td>
+                                    <td>${user.ref}</td>
+                                    <td>${user.name}</td>
+                                    <td>${user.propertyType}</td>
+                                    <td>${user.status}</td>
+                                    <td>${user.fuelSource}</td>
+                                    <td>${user.totalCapacity}</td>
+                                    <td>${user.energyConversionType}</td>
+                                    <td>${user.modeOfGeneration}</td>
+                                    <td>${user.hasStorage ? 'Yes' : 'No'}</td>
+                                    <td><a class="btn btn-sm btn-primary" href="nersaDetail.html?ref=${user.ref}">Details</a></td>
+                                `;
+                        
+                                tableBody.appendChild(row);
+                            });
+                        </script>
+
             </div>
 
             <script>
@@ -346,7 +402,7 @@
                 });
             });
             </script>
-            
+
             <!-- Recent Sales End -->
 
 
@@ -481,7 +537,7 @@
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                            Designed By <a href="https://htmlcodex.com">Electrified Embedders</a>
                             <br>Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
                         </div>
                     </div>
