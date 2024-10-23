@@ -158,16 +158,16 @@
                             <a href="#" class="dropdown-item text-center">See all notifications</a>
                         </div> 
                     </div> -->
-                    <div class="nav-item dropdown">
 
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="img/logo.jpg" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">Technical Services</span>
 
-                        <!-- <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
-                        </div> -->
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                            <a href=".../index.html" class="dropdown-item">Log Out</a>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -229,7 +229,7 @@
                             <canvas id="worldwide-sales"></canvas>
                         </div>
                     </div> -->
-                    <div class="col-sm-12 col-xl-12">
+                    <div class="col-sm-12 col-xl-8">
                         <div class="bg-secondary text-center rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-6">
                                 <h6 class="mb-0">Notifications</h6>
@@ -256,12 +256,21 @@
                             <div class="d-flex align-items-center border-bottom py-3">
                                 <div class="w-100 ms-3">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Installation Completed</h6>
+                                        <h6 class="mb-0">Technical verification</h6>
                                         <small>15 minutes ago</small>
                                     </div>
                                     <span>ref-0125</span>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-xl-4">
+                        <div class="h-100 bg-secondary rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">Inspection Bookings</h6>
+                                <a href="">Show All</a>
+                            </div>
+                            <div id="calender"></div>
                         </div>
                     </div>
                 </div>
@@ -311,14 +320,14 @@
                                     name: 'John Doe',
                                     date: '20 Jan 2024',
                                     coc: 'ORS.pdf',
-                                    status: 'Awaiting documentation',
+                                    status: 'Awaiting approval',
                                     address: '123 Elm Street',
                                     contact: '1234567890',
-                                    fuelSource: 'Solar', 
+                                    fuelSource: 'Solar',
                                     totalCapacity: '100 kVA, 0.8 PF',
-                                    energyConversionType: 'Inverter', 
-                                    modeOfGeneration: 'Export excess to distribution network', 
-                                    hasStorage: true 
+                                    energyConversionType: 'Inverter',
+                                    modeOfGeneration: 'Export excess to distribution network',
+                                    hasStorage: true
                                 },
                                 {
                                     ref: 'ref-0124',
@@ -327,7 +336,7 @@
                                     name: 'John Doe',
                                     date: '01 Jan 2024',
                                     coc: 'ORS.pdf',
-                                    status: 'Awaiting Approval',
+                                    status: 'Awaiting inspection',
                                     address: '456 Maple Street',
                                     contact: '0987654321',
                                     fuelSource: 'Hydro',
@@ -343,7 +352,7 @@
                                     name: 'John Doe',
                                     date: '01 Jan 2045',
                                     coc: 'ORS.pdf',
-                                    status: 'Awaiting Approval',
+                                    status: 'Technical verification',
                                     address: '789 Oak Lane',
                                     contact: '5554443333',
                                     fuelSource: 'Solar',

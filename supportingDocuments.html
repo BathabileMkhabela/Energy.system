@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form - Supporting Documents</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* background-image: url('./img/Background.jpg');
+            background-size: cover;
+            background-position: center; */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-size: 15px;
+        }
+
+        .form-group input[type="file"] {
+            width: 80%;
+            padding: 10px 35px; /* Increase padding to make space for the icon */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-group .icon {
+            position: absolute;
+            left: 10px; /* Adjust the horizontal position */
+            top: 50%;
+            transform: translateY(-50%); /* Center the icon vertically */
+            font-size: 18px;
+            color: #888;
+        }
+
+        .submit-button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            color: #4CAF50;
+        }
+
+        .result h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .result p {
+            margin: 5px 0;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Submit Supporting Documents</h2>
+        <form id="documentForm">
+            <div class="form-group">
+                <label for="singleLineDiagram">
+                    
+                    Single Line Diagram:
+                </label>
+                <input type="file" id="singleLineDiagram" name="singleLineDiagram" accept=".pdf,.jpg,.png,.docx" required>
+            </div>
+            <div class="form-group">
+                <label for="coc">
+                    
+                    Certificate of Confirmation (COC):
+                </label>
+                <input type="file" id="coc" name="coc" accept=".pdf,.jpg,.png,.docx" required>
+            </div>
+            <div class="form-group">
+                <label for="sitePlan">
+                    
+                    Site Plan and Control Philosophy:
+                </label>
+                <input type="file" id="sitePlan" name="sitePlan" accept=".pdf,.jpg,.png,.docx" required>
+            </div>
+            <button type="submit" class="submit-button">Submit</button>
+            <div class="error" id="error"></div>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        document.getElementById("documentForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Clear previous error message
+            const errorDiv = document.getElementById("error");
+            errorDiv.textContent = "";
+
+            // Get the file inputs
+            const singleLineDiagram = document.getElementById("singleLineDiagram").files[0];
+            const coc = document.getElementById("coc").files[0];
+            const sitePlan = document.getElementById("sitePlan").files[0];
+
+            // Check for file size (e.g., max 5MB per file)
+            const maxSize = 5 * 1024 * 1024; // 5MB
+            if (singleLineDiagram.size > maxSize || coc.size > maxSize || sitePlan.size > maxSize) {
+                errorDiv.textContent = "Each file must be less than 5MB.";
+                return;
+            }
+
+            // Check for file type
+            const validExtensions = ['pdf', 'jpg', 'png', 'docx'];
+            function isValidFile(file) {
+                const fileExtension = file.name.split('.').pop().toLowerCase();
+                return validExtensions.includes(fileExtension);
+            }
+
+            if (!isValidFile(singleLineDiagram) || !isValidFile(coc) || !isValidFile(sitePlan)) {
+                errorDiv.textContent = "Invalid file type. Please upload a PDF, JPG, PNG, or DOCX file.";
+                return;
+            }
+
+            // Generate a random reference number
+            const referenceNumber = 'REF-' + Math.floor(Math.random() * 1000000);
+
+
+            window.location.href = "submitted.html";
+
+            // Clear the form after submission
+            document.getElementById("documentForm").reset();
+        });
+    </script>
+</body>
+</html>

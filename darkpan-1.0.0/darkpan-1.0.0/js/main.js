@@ -68,9 +68,9 @@
     var myChart1 = new Chart(ctx1, {
         type: "bar",
         data: {
-            labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+            labels: ["2024", "2025", "2026", "2027", "2028", "2029", "2030"],
             datasets: [{
-                    label: "",
+                    label: "Rate %",
                     data: [15, 30, 55, 65, 60, 80, 95],
                     backgroundColor: "#19B754"
                 },

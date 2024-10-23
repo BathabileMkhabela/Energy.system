@@ -71,7 +71,7 @@
                 <label for="userType" class="form-label">Select User Type</label>
                 <select class="form-select" id="userType" required>
                     <option value="applicant">Applicant</option>
-                    <option value="non-stakeholder">Non-stakeholder</option>
+                    <option value="non-stakeholder">Client</option>
                     <!-- <option value="admin">Admin</option> -->
                 </select>
             </div>
@@ -116,19 +116,45 @@
             if (userType === "applicant") {
                 const meterNumber = document.getElementById("meterNumber").value;
                 if (meterNumber && password) {
-                    alert("Applicant login successful!");
-                    window.location.href = "ApplicantDashboard.html"; // Update the path if needed
+                    if(meterNumber.length==10)
+                    {
+                        if(password.length==6)
+                        {
+                            alert("Applicant login successful!");
+                            window.location.href = "ApplicantDashboard.html"; // Update the path if needed
+                        }
+                        else
+                        {
+                            alert("Login failed! Please enter your ID Number as your password");
+                        window.location.href = "login.html";
+                        }
+                       
+                    }else
+                    {
+                        alert("Login failed! Please enter correct municipal account number");
+                        window.location.href = "login.html";
+                    }
+
                 } else {
                     alert("Please enter a valid meter number and password.");
                 }
             } else if (userType === "non-stakeholder") {
                 const userName = document.getElementById("userName").value;
-                if (userName && password) {
-                    alert("Login successful!");
+                if (userName == 'inspector' && password == '1234') {
+                    //alert("Login successful!");
                     // Make sure the path to the file is correct and that the file exists
                     window.location.href = "/darkpan-1.0.0/darkpan-1.0.0/index.html"; 
-                } else {
-                    alert("Please enter a valid username and password.");
+                }else if(userName == 'technician' && password == '1235')
+                {
+                    window.location.href = "/darkpan-1.0.0/darkpan-1.0.0/technicalServices.html"; 
+                }
+                else if(userName == 'nersa' && password == '1236')
+                {
+                    window.location.href = "/darkpan-1.0.0/darkpan-1.0.0/nersa.html"; 
+                }
+                else {
+                    alert("Access Denied!! ");
+                    window.location.href = "login.html"; 
                 }
             } else if (userType === "admin") {
                 const staffNumber = document.getElementById("staffNumber").value;
