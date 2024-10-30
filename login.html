@@ -93,18 +93,7 @@
                 <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
                 <input type="text" class="form-control" id="userName" placeholder="Username">
             </div>
-            <div id="adminFields" class="mb-3 input-group d-none">
-                <span class="input-group-text"><i class="fa-solid fa-id-badge"></i></span>
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    id="staffNumber" 
-                    placeholder="Staff Number" 
-                    inputmode="numeric" 
-                    pattern="[0-9]*" 
-                    oninput="this.value = this.value.replace(/[^0-9]/g, '')"
-                    required>
-            </div>
+
             <div class="mb-3 input-group">
                 <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
                 <input type="password" class="form-control" id="password" placeholder="Password" required>
@@ -121,72 +110,44 @@
     <script>
         document.getElementById("userType").addEventListener("change", function() {
             const userType = this.value;
-            document.getElementById("applicantFields").classList.toggle("d-none", userType !== "applicant");
-            document.getElementById("nonStakeholderFields").classList.toggle("d-none", userType !== "non-stakeholder");
-            document.getElementById("adminFields").classList.toggle("d-none", userType !== "admin");
-        });
+            const applicantFields = document.getElementById("applicantFields");
+            const nonStakeholderFields = document.getElementById("nonStakeholderFields");
 
+
+            // Toggle visibility
+            applicantFields.classList.toggle("d-none", userType !== "applicant");
+            nonStakeholderFields.classList.toggle("d-none", userType !== "non-stakeholder");
+
+
+            // Toggle required attribute based on visibility
+            document.getElementById("meterNumber").required = userType === "applicant";
+            document.getElementById("userName").required = userType === "non-stakeholder";
+
+        });
         document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault();
+            event.preventDefault();  // Prevents form submission
             const userType = document.getElementById("userType").value;
             const password = document.getElementById("password").value;
-
             if (userType === "applicant") {
                 const meterNumber = document.getElementById("meterNumber").value;
-<<<<<<< HEAD
-                if (meterNumber && password) {
-                    if(meterNumber.length==10)
-                    {
-                        if(password.length==6)
-                        {
-                            alert("Applicant login successful!");
-                            window.location.href = "ApplicantDashboard.html"; // Update the path if needed
-                        }
-                        else
-                        {
-                            alert("Login failed! Please enter your ID Number as your password");
-                        window.location.href = "login.html";
-                        }
-                       
-                    }else
-                    {
-                        alert("Login failed! Please enter correct municipal account number");
-                        window.location.href = "login.html";
-                    }
-
-=======
-                if (meterNumber.length === 10 && password) {
+                if (meterNumber && meterNumber.length === 10 && password.length === 6) {
                     alert("Applicant login successful!");
-                    window.location.href = "ApplicantDashboard.html"; // Update the path if needed
->>>>>>> f1e5f640e8b5d79bfa70896e0858dd06df33cc1b
+                    window.location.href = "ApplicantDashboard.html";
                 } else {
-                    alert("Please enter a valid 10-digit municipal number and password.");
+                    alert("Login failed! Ensure the municipal number is 10 digits and the password is 6 digits.");
+                    window.location.href = "login.html";
                 }
             } else if (userType === "non-stakeholder") {
                 const userName = document.getElementById("userName").value;
-                if (userName == 'inspector' && password == '1234') {
-                    //alert("Login successful!");
-                    // Make sure the path to the file is correct and that the file exists
-                    window.location.href = "/darkpan-1.0.0/darkpan-1.0.0/index.html"; 
-                }else if(userName == 'technician' && password == '1235')
-                {
-                    window.location.href = "/darkpan-1.0.0/darkpan-1.0.0/technicalServices.html"; 
-                }
-                else if(userName == 'nersa' && password == '1236')
-                {
-                    window.location.href = "/darkpan-1.0.0/darkpan-1.0.0/nersa.html"; 
-                }
-                else {
-                    alert("Access Denied!! ");
-                    window.location.href = "login.html"; 
-                }
-            } else if (userType === "admin") {
-                const staffNumber = document.getElementById("staffNumber").value;
-                if (staffNumber && password) {
-                    alert("Admin login successful!");
-                    window.location.href = "./AdminDashboard.html"; // Update the path if needed
+                if ((userName === 'inspector' && password === '1234') ||
+                    (userName === 'technician' && password === '1235') ||
+                    (userName === 'nersa' && password === '1236')) {
+                    window.location.href = userName === 'inspector' ? "/darkpan-1.0.0/darkpan-1.0.0/index.html" :
+                                          userName === 'technician' ? "/darkpan-1.0.0/darkpan-1.0.0/technicalServices.html" :
+                                          "/darkpan-1.0.0/darkpan-1.0.0/nersa.html";
                 } else {
-                    alert("Please enter a valid staff number and password.");
+                    alert("Access Denied!! ");
+                    window.location.href = "login.html";
                 }
             }
         });
